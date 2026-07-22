@@ -2,11 +2,36 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>تتبع شحنتك – ألوان سمائية</title>
-    <!-- خط Tajawal من Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فندر | صديقك في التسوق من شي إن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Changa:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #0d1117;
+            --bg-card: #161b22;
+            --bg-card-hover: #1c2333;
+            --border: #21262d;
+            --border-light: #30363d;
+            --accent-teal: #00c9a7;
+            --accent-blue: #58a6ff;
+            --accent-purple: #a371f7;
+            --accent-pink: #f778ba;
+            --accent-gold: #e2b04a;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --success: #3fb950;
+            --warning: #d2991d;
+            --info: #58a6ff;
+            --logo-yellow: #FFD700;
+            --logo-yellow-dark: #F0C000;
+            --radius-sm: 10px;
+            --radius: 16px;
+            --radius-lg: 20px;
+            --transition: 0.2s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,494 +39,1238 @@
         }
 
         body {
-            font-family: 'Tajawal', 'Segoe UI', sans-serif;
-            background: radial-gradient(circle at 20% 30%, #e0f7fa, #b2ebf2 40%, #80deea 100%);
+            font-family: 'Tajawal', sans-serif;
+            background: var(--bg);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .logo-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(145deg, #FFE44D, #FFD700, #F0C000);
+            border-radius: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25), 0 2px 8px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .logo-box .v-letter {
+            font-family: 'Changa', 'Arial Black', sans-serif;
+            font-size: 52px;
+            font-weight: 900;
+            color: #0d1117;
+            line-height: 1;
+            user-select: none;
+            margin-top: 2px;
+        }
+
+        .app-title {
+            font-family: 'Changa', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .app-title span {
+            color: var(--logo-yellow);
+        }
+
+        .app-tagline {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .welcome-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .welcome-card .top-accent {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--logo-yellow);
+            border-radius: 0 0 8px 8px;
+        }
+
+        .welcome-greeting {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .welcome-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 2;
+        }
+
+        .welcome-text .brand {
+            color: var(--logo-yellow);
+            font-weight: 700;
+        }
+
+        .welcome-text .store {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 15px 18px;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .menu-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-light);
+            transform: translateX(-4px);
+        }
+
+        .menu-item:active {
+            transform: scale(0.98);
+        }
+
+        .menu-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            margin: 0;
-            position: relative;
-            overflow-x: hidden;
+            font-size: 1.1em;
+            flex-shrink: 0;
         }
 
-        /* خلفية زخرفية */
-        body::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            filter: blur(80px);
-            top: -50px;
-            left: -50px;
-            z-index: 0;
+        .menu-icon.teal {
+            background: rgba(0, 201, 167, 0.1);
+            color: var(--accent-teal);
+            border: 1px solid rgba(0, 201, 167, 0.2);
         }
 
-        body::after {
-            content: '';
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            background: rgba(255,255,255,0.25);
-            border-radius: 50%;
-            filter: blur(70px);
-            bottom: -30px;
-            right: -30px;
-            z-index: 0;
+        .menu-icon.blue {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(88, 166, 255, 0.2);
         }
 
-        .track-container {
-            max-width: 480px;
-            width: 100%;
-            position: relative;
-            z-index: 2;
-            animation: fadeSlideUp 0.6s ease-out;
+        .menu-icon.purple {
+            background: rgba(163, 113, 247, 0.1);
+            color: var(--accent-purple);
+            border: 1px solid rgba(163, 113, 247, 0.2);
         }
 
-        @keyframes fadeSlideUp {
-            0% {
+        .menu-icon.pink {
+            background: rgba(247, 120, 186, 0.1);
+            color: var(--accent-pink);
+            border: 1px solid rgba(247, 120, 186, 0.2);
+        }
+
+        .menu-content {
+            flex: 1;
+        }
+
+        .menu-title {
+            font-weight: 600;
+            font-size: 0.95em;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .menu-desc {
+            font-size: 0.75em;
+            color: var(--text-muted);
+        }
+
+        .menu-arrow {
+            color: var(--text-muted);
+            font-size: 0.85em;
+            transition: all var(--transition);
+        }
+
+        .menu-item:hover .menu-arrow {
+            color: var(--logo-yellow);
+            transform: translateX(-3px);
+        }
+
+        .content-panel {
+            animation: fadeSlide 0.3s ease;
+        }
+
+        @keyframes fadeSlide {
+            from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(15px);
             }
-            100% {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* بطاقة زجاجية */
-        .card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 40px;
-            box-shadow: 0 30px 50px rgba(0, 100, 120, 0.15),
-                        0 10px 25px rgba(0,0,0,0.05),
-                        inset 0 1px 0 rgba(255,255,255,0.8);
-            border: 1px solid rgba(255,255,255,0.6);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 35px 55px rgba(0, 100, 120, 0.2),
-                        0 15px 30px rgba(0,0,0,0.08);
-            transform: translateY(-2px);
-        }
-
-        /* رأس البطاقة بتدرج ناعم */
-        .card-header {
-            background: linear-gradient(135deg, #006064, #0097a7);
+        .detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             padding: 22px 20px;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .detail-header .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 3px;
+        }
+
+        .indicator.teal { background: var(--accent-teal); }
+        .indicator.blue { background: var(--accent-blue); }
+        .indicator.purple { background: var(--accent-purple); }
+        .indicator.pink { background: var(--accent-pink); }
+
+        .detail-header h3 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 10px;
+            border-radius: 8px;
+            margin-bottom: 2px;
+            transition: background var(--transition);
+        }
+
+        .info-row:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .info-label {
+            color: var(--text-secondary);
+            font-size: 0.88em;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.88em;
+        }
+
+        .info-value.highlight {
+            color: var(--accent-teal);
+        }
+
+        .info-value.gold {
+            color: var(--accent-gold);
+        }
+
+        .separator {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 10px 0;
+        }
+
+        .form-input {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 13px 15px;
+            color: var(--text-primary);
+            font-size: 0.95em;
+            font-family: 'Tajawal', sans-serif;
+            outline: none;
+            transition: all var(--transition);
+            margin-bottom: 12px;
+        }
+
+        .form-input:focus {
+            border-color: var(--logo-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .result-box {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--radius);
+            padding: 16px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin: 12px 0;
         }
 
-        .card-header::after {
-            content: '';
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            top: -50px;
-            right: -30px;
+        .result-box .number {
+            font-family: 'Changa', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--logo-yellow);
         }
 
-        .card-header h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #ffffff;
+        .result-box .currency {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 13px;
+            border-radius: var(--radius-sm);
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-header p {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.9);
-            margin-top: 6px;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* منطقة البحث */
-        .search-area {
-            padding: 24px 20px 12px;
-        }
-
-        .input-group {
-            display: flex;
-            gap: 10px;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 60px;
-            padding: 5px;
-            border: 1px solid rgba(0,150,136,0.2);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        }
-
-        .input-group input {
-            flex: 2;
+            margin-bottom: 8px;
             border: none;
-            background: transparent;
-            padding: 12px 16px;
-            font-size: 0.95rem;
-            text-align: center;
-            color: #004d40;
-            font-weight: 600;
-            outline: none;
-            border-radius: 60px;
-            transition: 0.2s;
         }
 
-        .input-group input::placeholder {
-            color: #80cbc4;
-            font-weight: 400;
-        }
-
-        .input-group input:focus {
-            background: rgba(255,255,255,0.9);
-            box-shadow: 0 0 0 3px rgba(0,150,136,0.15);
-        }
-
-        .input-group button {
-            background: linear-gradient(135deg, #0097a7, #006064);
-            border: none;
-            padding: 0 28px;
-            border-radius: 50px;
-            color: white;
+        .btn-primary {
+            background: var(--logo-yellow);
+            color: #0d1117;
             font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 8px 15px rgba(0,137,123,0.2);
-            white-space: nowrap;
         }
 
-        .input-group button:hover {
-            background: linear-gradient(135deg, #00838f, #004d40);
-            transform: scale(1.02);
-            box-shadow: 0 12px 20px rgba(0,137,123,0.3);
+        .btn-primary:hover {
+            background: #e6c200;
         }
 
-        .input-group button:active {
+        .btn-primary:active {
             transform: scale(0.97);
         }
 
-        .example-hint {
-            text-align: center;
-            font-size: 0.7rem;
-            margin-top: 10px;
-            color: #00838f;
-            font-weight: 600;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(5px);
-            display: inline-block;
-            padding: 4px 14px;
-            border-radius: 20px;
-            margin-right: auto;
-            margin-left: auto;
-            width: fit-content;
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
         }
 
-        /* عرض النتائج */
-        .status-stepper {
-            padding: 16px 20px 24px;
-            animation: fadeIn 0.4s ease;
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .btn-outline:active {
+            transform: scale(0.97);
         }
 
-        .stepper-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #00695c;
-            text-align: center;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-            background: rgba(255,255,255,0.8);
-            padding: 6px 16px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-right: auto;
-            margin-left: auto;
-            width: fit-content;
+        .contact-row {
+            display: flex;
+            gap: 12px;
+            margin: 15px 0;
         }
 
-        .vertical-steps {
+        .contact-link {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 12px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88em;
+            transition: all var(--transition);
+            text-align: center;
         }
 
-        .step-card {
+        .contact-link i {
+            font-size: 1.6em;
+        }
+
+        .contact-link.instagram {
+            background: rgba(247, 120, 186, 0.06);
+            border: 1px solid rgba(247, 120, 186, 0.2);
+            color: var(--accent-pink);
+        }
+
+        .contact-link.instagram:hover {
+            background: rgba(247, 120, 186, 0.12);
+            border-color: rgba(247, 120, 186, 0.35);
+        }
+
+        .contact-link.whatsapp {
+            background: rgba(0, 201, 167, 0.06);
+            border: 1px solid rgba(0, 201, 167, 0.2);
+            color: var(--accent-teal);
+        }
+
+        .contact-link.whatsapp:hover {
+            background: rgba(0, 201, 167, 0.12);
+            border-color: rgba(0, 201, 167, 0.35);
+        }
+
+        /* ============ شريط التتبع ============ */
+        .status-container {
+            margin: 15px 0;
+        }
+
+        .progress-wrapper {
+            padding: 10px 18px;
+            margin-bottom: 30px;
+        }
+
+        .progress-track {
             display: flex;
             align-items: center;
-            gap: 16px;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0,150,136,0.15);
-            border-radius: 24px;
-            padding: 14px 18px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            justify-content: space-between;
+            position: relative;
+            padding: 10px 0;
         }
 
-        .step-card:hover {
-            transform: translateX(-4px);
-            box-shadow: 0 8px 20px rgba(0,150,136,0.1);
+        .progress-track::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 18px;
+            right: 18px;
+            height: 3px;
+            background: var(--border);
+            transform: translateY(-50%);
+            border-radius: 2px;
+            z-index: 0;
         }
 
-        .step-icon {
-            width: 44px;
-            height: 44px;
-            background: #e0f2f1;
-            border-radius: 20px;
+        .progress-fill {
+            position: absolute;
+            top: 50%;
+            left: 18px;
+            height: 3px;
+            background: var(--logo-yellow);
+            transform: translateY(-50%);
+            border-radius: 2px;
+            z-index: 1;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: #00796b;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            font-size: 0.8em;
+            transition: all 0.4s ease;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .step-circle.completed {
+            background: var(--logo-yellow);
+            border-color: var(--logo-yellow);
+            color: #0d1117;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .step-circle.active {
+            background: rgba(255, 215, 0, 0.15);
+            border-color: var(--logo-yellow);
+            color: var(--logo-yellow);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            animation: pulse-ring 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(255, 215, 0, 0); }
         }
 
         .step-label {
-            font-size: 0.85rem;
+            font-size: 0.7em;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 70px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .step-circle.completed + .step-label,
+        .step-circle.active + .step-label {
+            color: var(--text-primary);
             font-weight: 600;
-            color: #2c3e50;
+        }
+
+        /* ============ بطاقة الحالة العادية ============ */
+        .status-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .status-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4em;
+            flex-shrink: 0;
+        }
+
+        .status-icon-wrapper.processing {
+            background: rgba(210, 153, 29, 0.1);
+            color: var(--warning);
+            border: 1px solid rgba(210, 153, 29, 0.25);
+        }
+
+        .status-icon-wrapper.shipping {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--info);
+            border: 1px solid rgba(88, 166, 255, 0.25);
+        }
+
+        .status-details {
             flex: 1;
         }
 
-        /* المرحلة النشطة */
-        .step-card.active {
-            background: linear-gradient(105deg, #e0f7fa, #b2dfdb);
-            border-color: #26a69a;
-            box-shadow: 0 8px 18px rgba(0,150,136,0.15);
-            transform: scale(1.02);
+        .status-title {
+            font-weight: 700;
+            font-size: 1em;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
-        .step-card.active .step-icon {
-            background: #009688;
-            color: white;
-            box-shadow: 0 6px 15px rgba(0,150,136,0.3);
+        .status-description {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            line-height: 1.4;
         }
 
-        .step-card.active .step-label {
-            color: #004d40;
-            font-weight: 800;
+        .status-time {
+            font-size: 0.75em;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        /* المرحلة غير النشطة */
-        .step-card.inactive {
-            background: rgba(255,255,255,0.5);
-            border-color: rgba(0,0,0,0.05);
+        /* ============ صندوق تم الاستلام ============ */
+        .delivery-box-container {
+            perspective: 800px;
+            margin-top: 10px;
         }
 
-        .step-card.inactive .step-icon {
-            background: #eceff1;
-            color: #90a4ae;
-        }
-
-        .step-card.inactive .step-label {
-            color: #78909c;
-        }
-
-        /* رسالة الخطأ */
-        .error-message {
-            color: #c62828;
-            background: rgba(255,235,238,0.8);
-            backdrop-filter: blur(5px);
-            border-radius: 30px;
-            padding: 14px 18px;
-            font-size: 0.85rem;
+        .delivery-box {
+            background: linear-gradient(145deg, #1a2a1a, #1a3a1a);
+            border: 2px solid rgba(63, 185, 80, 0.4);
+            border-radius: var(--radius-lg);
+            padding: 30px 25px;
             text-align: center;
-            font-weight: 600;
-            border: 1px solid rgba(239,83,80,0.2);
-            box-shadow: 0 4px 10px rgba(239,83,80,0.1);
-            animation: shake 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(63, 185, 80, 0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+            animation: boxAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        @keyframes shake {
-            0%,100% { transform: translateX(0); }
-            20% { transform: translateX(-4px); }
-            40% { transform: translateX(4px); }
-            60% { transform: translateX(-2px); }
-            80% { transform: translateX(2px); }
-        }
-
-        /* تذييل البطاقة */
-        footer {
-            text-align: center;
-            padding: 14px;
-            font-size: 0.7rem;
-            background: rgba(224,242,241,0.7);
-            backdrop-filter: blur(5px);
-            color: #00695c;
-            font-weight: 600;
-            border-top: 1px solid rgba(255,255,255,0.8);
-        }
-
-        /* تحسينات للجوال */
-        @media (max-width: 480px) {
-            .card-header h1 {
-                font-size: 1.5rem;
+        @keyframes boxAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
             }
-            .step-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 1.3rem;
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* شريط علوي للصندوق */
+        .delivery-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--success), transparent);
+            border-radius: 0 0 50% 50%;
+        }
+
+        /* تأثير لمعان */
+        .delivery-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(63, 185, 80, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .box-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(145deg, #1e4620, #2d5a2d);
+            border: 2px solid rgba(63, 185, 80, 0.5);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(63, 185, 80, 0.25);
+        }
+
+        .box-icon i {
+            font-size: 38px;
+            color: var(--success);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            animation: boxBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes boxBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .box-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 28px;
+            height: 28px;
+            background: var(--success);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #0d1117;
+            box-shadow: 0 4px 12px rgba(63, 185, 80, 0.4);
+        }
+
+        .box-title {
+            font-family: 'Changa', sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--success);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .box-message {
+            font-size: 0.95em;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .box-submessage {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .box-details {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .box-detail-item {
+            background: rgba(63, 185, 80, 0.08);
+            border: 1px solid rgba(63, 185, 80, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85em;
+            color: var(--success);
+        }
+
+        .box-detail-item i {
+            font-size: 1em;
+        }
+
+        .box-stars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+        .box-stars i {
+            color: var(--logo-yellow);
+            font-size: 1.2em;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-10 {
+            margin-top: 10px;
+        }
+
+        .mt-15 {
+            margin-top: 15px;
+        }
+
+        @media (max-width: 380px) {
+            .menu-item {
+                padding: 13px 14px;
+                gap: 10px;
+            }
+            .menu-icon {
+                width: 38px;
+                height: 38px;
+                border-radius: 8px;
+                font-size: 1em;
+            }
+            .menu-title {
+                font-size: 0.9em;
+            }
+            .app-title {
+                font-size: 1.8em;
+            }
+            .contact-row {
+                flex-direction: column;
+            }
+            .logo-box {
+                width: 70px;
+                height: 70px;
                 border-radius: 16px;
             }
+            .logo-box .v-letter {
+                font-size: 42px;
+            }
+            .step-circle {
+                width: 28px;
+                height: 28px;
+                font-size: 0.7em;
+            }
             .step-label {
-                font-size: 0.78rem;
+                font-size: 0.65em;
+                max-width: 55px;
             }
-            .step-card {
-                padding: 12px 14px;
-                gap: 12px;
+            .box-icon {
+                width: 65px;
+                height: 65px;
             }
-            .input-group button {
-                padding: 0 18px;
-                font-size: 0.85rem;
+            .box-icon i {
+                font-size: 30px;
             }
         }
     </style>
 </head>
 <body>
-<div class="track-container">
-    <div class="card">
-        <div class="card-header">
-            <h1>📦 تتبع شحنتك</h1>
-            <p>ألوان سمائية – تتبع فوري لطلبك</p>
-        </div>
-        <div class="search-area">
-            <div class="input-group">
-                <input type="text" id="trackingNumber" placeholder="مثال: 0001" autocomplete="off">
-                <button id="trackBtn"><span>🔍</span> تتبع</button>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo-box">
+                <span class="v-letter">V</span>
             </div>
-            <div class="example-hint">📋 جرّب رقم الطلب: 0001</div>
+            <h1 class="app-title"><span>فن</span>در</h1>
+            <p class="app-tagline">صديقك الوفي في التسوق</p>
         </div>
 
-        <div id="resultDynamic" style="display: none;">
-            <div class="status-stepper">
-                <div class="stepper-title">🚚 مراحل الشحن</div>
-                <div class="vertical-steps" id="stepsContainer"></div>
+        <div class="welcome-card">
+            <div class="top-accent"></div>
+            <p class="welcome-greeting">👋 مرحباً بك</p>
+            <p class="welcome-text">
+                أهلاً بك في <span class="brand">فندر</span><br>
+                صديقك الوفي في مشوار التسوق من <span class="store">شي إن</span>
+            </p>
+        </div>
+
+        <div class="menu-list" id="mainMenu">
+            <div class="menu-item" onclick="showShipping()">
+                <div class="menu-icon teal"><i class="fas fa-box"></i></div>
+                <div class="menu-content">
+                    <div class="menu-title">معلومات الشحن</div>
+                    <div class="menu-desc">الدولة، العملة، التوصيل</div>
+                </div>
+                <i class="fas fa-chevron-left menu-arrow"></i>
+            </div>
+
+            <div class="menu-item" onclick="showCalculator()">
+                <div class="menu-icon blue"><i class="fas fa-calculator"></i></div>
+                <div class="menu-content">
+                    <div class="menu-title">حساب السعر بالدينار</div>
+                    <div class="menu-desc">تحويل الدولار للدينار العراقي</div>
+                </div>
+                <i class="fas fa-chevron-left menu-arrow"></i>
+            </div>
+
+            <div class="menu-item" onclick="showTracking()">
+                <div class="menu-icon purple"><i class="fas fa-map-pin"></i></div>
+                <div class="menu-content">
+                    <div class="menu-title">تتبع طلبك</div>
+                    <div class="menu-desc">معرفة حالة طلبك الحالية</div>
+                </div>
+                <i class="fas fa-chevron-left menu-arrow"></i>
+            </div>
+
+            <div class="menu-item" onclick="showHelp()">
+                <div class="menu-icon pink"><i class="fas fa-headset"></i></div>
+                <div class="menu-content">
+                    <div class="menu-title">مركز المساعدة</div>
+                    <div class="menu-desc">تواصل معنا مباشرة</div>
+                </div>
+                <i class="fas fa-chevron-left menu-arrow"></i>
             </div>
         </div>
-        <div id="errorArea" style="display: none; padding: 0 20px 20px;">
-            <div class="error-message" id="errorMsg">⚠️ الطلب غير موجود</div>
-        </div>
-        <footer>⚡ تتبع مباشر من Firebase</footer>
+
+        <div class="content-panel hidden" id="contentPanel"></div>
     </div>
-</div>
 
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyDXY2aKmzbKqxs2EmMiMAZ-_5qatDLiXZQ",
-        authDomain: "alipay-5f8b3.firebaseapp.com",
-        databaseURL: "https://alipay-5f8b3-default-rtdb.firebaseio.com",
-        projectId: "alipay-5f8b3",
-        storageBucket: "alipay-5f8b3.firebasestorage.app",
-        messagingSenderId: "89272268",
-        appId: "1:89272268:web:6f4c4fca444f2898cc7769",
-        measurementId: "G-YHXXK6ZKXC"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyCHTO1RQst9ts_4SR_Bd4Akb-4VljtNIOs",
+            authDomain: "lunex-jewe.firebaseapp.com",
+            databaseURL: "https://lunex-jewe-default-rtdb.firebaseio.com",
+            projectId: "lunex-jewe",
+            storageBucket: "lunex-jewe.firebasestorage.app",
+            messagingSenderId: "79262821764",
+            appId: "1:79262821764:web:effbf87d0d4d81abf0c1d1",
+            measurementId: "G-8P024889EK"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
 
-    const ALL_STATUSES = [
-        "جاري المعالجة",
-        "جاري التجهيز",
-        "قيد الشحن الى الامارات",
-        "قيد الشحن الى العراق",
-        "تم الاستلام في البصرة",
-        "جاري الشحن لمخازننا في الناصرية",
-        "وصلت شحنتك بنجاح"
-    ];
+        const mainMenu = document.getElementById('mainMenu');
+        const contentPanel = document.getElementById('contentPanel');
 
-    const STATUS_ICONS = {
-        "جاري المعالجة": "⚙️",
-        "جاري التجهيز": "📦",
-        "قيد الشحن الى الامارات": "✈️",
-        "قيد الشحن الى العراق": "🚛",
-        "تم الاستلام في البصرة": "✅",
-        "جاري الشحن لمخازننا في الناصرية": "🏭",
-        "وصلت شحنتك بنجاح": "🎉"
-    };
-
-    const trackInput = document.getElementById('trackingNumber');
-    const trackBtn = document.getElementById('trackBtn');
-    const resultDiv = document.getElementById('resultDynamic');
-    const errorDiv = document.getElementById('errorArea');
-    const stepsContainer = document.getElementById('stepsContainer');
-
-    function renderAllStages(currentStatus) {
-        stepsContainer.innerHTML = '';
-        ALL_STATUSES.forEach(status => {
-            const isActive = (status === currentStatus);
-            const stepDiv = document.createElement('div');
-            stepDiv.className = 'step-card';
-            stepDiv.classList.add(isActive ? 'active' : 'inactive');
-            stepDiv.innerHTML = `
-                <div class="step-icon">${STATUS_ICONS[status] || '📌'}</div>
-                <div class="step-label">${status}</div>
-            `;
-            stepsContainer.appendChild(stepDiv);
-        });
-    }
-
-    async function trackOrder() {
-        let orderId = trackInput.value.trim();
-        if (!orderId) {
-            alert("الرجاء إدخال رقم التتبع");
-            return;
+        function showPanel(html) {
+            mainMenu.classList.add('hidden');
+            contentPanel.classList.remove('hidden');
+            contentPanel.innerHTML = html;
         }
-        resultDiv.style.display = 'none';
-        errorDiv.style.display = 'none';
-        resultDiv.style.display = 'block';
-        stepsContainer.innerHTML = '<div class="step-card" style="justify-content:center;"><span style="color:#0097a7;">⏳ جاري البحث...</span></div>';
 
-        try {
-            const snapshot = await get(ref(db, `orders/${orderId}`));
-            if (snapshot.exists()) {
-                const currentStatus = snapshot.val().status || "جاري المعالجة";
-                renderAllStages(currentStatus);
-                errorDiv.style.display = 'none';
-            } else {
-                resultDiv.style.display = 'none';
-                errorDiv.style.display = 'block';
-                document.getElementById('errorMsg').innerHTML = `❌ لا يوجد طلب برقم "${orderId}"`;
+        function goBack() {
+            contentPanel.classList.add('hidden');
+            mainMenu.classList.remove('hidden');
+            contentPanel.innerHTML = '';
+        }
+
+        window.goBack = goBack;
+
+        // إنشاء عرض حالة الطلب
+        function createStatusDisplay(status) {
+            const steps = [
+                { id: 'processing', label: 'قيد التجهيز', icon: 'fa-clipboard-list' },
+                { id: 'shipping-kw', label: 'الشحن للكويت', icon: 'fa-plane' },
+                { id: 'shipping-iq', label: 'الشحن للعراق', icon: 'fa-truck-fast' },
+                { id: 'received', label: 'تم الاستلام', icon: 'fa-box-check' }
+            ];
+
+            let currentStepIndex = 0;
+            let statusTitle = 'قيد التجهيز';
+            let statusDesc = 'طلبك قيد التجهيز والتغليف من قبل شي إن';
+            let statusIcon = 'fa-clipboard-list';
+            let iconWrapperClass = 'processing';
+            let isReceived = false;
+
+            if (status === 'قيد الشحن للكويت') {
+                currentStepIndex = 1;
+                statusTitle = 'قيد الشحن للكويت';
+                statusDesc = 'طلبك في طريقه إلى مستودعنا في الكويت';
+                statusIcon = 'fa-plane';
+                iconWrapperClass = 'shipping';
+            } else if (status === 'قيد الشحن للعراق') {
+                currentStepIndex = 2;
+                statusTitle = 'قيد الشحن للعراق';
+                statusDesc = 'طلبك في طريقه من الكويت إلى العراق';
+                statusIcon = 'fa-truck-fast';
+                iconWrapperClass = 'shipping';
+            } else if (status === 'تم الاستلام') {
+                currentStepIndex = 3;
+                statusTitle = 'تم الاستلام';
+                statusDesc = 'تم استلام طلبك بنجاح، نتمنى لك تجربة ممتعة';
+                statusIcon = 'fa-box-check';
+                iconWrapperClass = 'received';
+                isReceived = true;
             }
-        } catch (err) {
-            resultDiv.style.display = 'none';
-            errorDiv.style.display = 'block';
-            document.getElementById('errorMsg').innerHTML = `⚠️ خطأ في الاتصال: ${err.message}`;
-        }
-    }
 
-    trackBtn.addEventListener('click', trackOrder);
-    trackInput.addEventListener('keypress', (e) => e.key === 'Enter' && trackOrder());
-</script>
+            const progressPercent = currentStepIndex * (100 / (steps.length - 1));
+
+            let stepsHTML = steps.map((step, index) => {
+                let circleClass = '';
+                if (index < currentStepIndex) circleClass = 'completed';
+                else if (index === currentStepIndex) circleClass = 'active';
+
+                let iconHTML = '';
+                if (index < currentStepIndex) {
+                    iconHTML = '<i class="fas fa-check"></i>';
+                } else {
+                    iconHTML = `<i class="fas ${step.icon}"></i>`;
+                }
+
+                return `
+                    <div class="progress-step">
+                        <div class="step-circle ${circleClass}">
+                            ${iconHTML}
+                        </div>
+                        <span class="step-label">${step.label}</span>
+                    </div>
+                `;
+            }).join('');
+
+            // بطاقة الحالة حسب النوع
+            let statusCardHTML = '';
+            
+            if (isReceived) {
+                // صندوق تم الاستلام المميز
+                statusCardHTML = `
+                    <div class="delivery-box-container">
+                        <div class="delivery-box">
+                            <div class="box-icon">
+                                <i class="fas fa-box-open"></i>
+                                <div class="box-badge">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="box-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            
+                            <h3 class="box-title">🎉 تم الاستلام بنجاح!</h3>
+                            <p class="box-message">تم استلام طلبك كاملاً</p>
+                            <p class="box-submessage">نتمنى أن تكون تجربة تسوق ممتعة<br>مع فندر وشي إن</p>
+                            
+                            <div class="box-details">
+                                <div class="box-detail-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>مكتمل</span>
+                                </div>
+                                <div class="box-detail-item">
+                                    <i class="fas fa-box"></i>
+                                    <span>تم التسليم</span>
+                                </div>
+                                <div class="box-detail-item">
+                                    <i class="far fa-smile"></i>
+                                    <span>شكراً لك</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // البطاقة العادية لباقي الحالات
+                statusCardHTML = `
+                    <div class="status-card">
+                        <div class="status-icon-wrapper ${iconWrapperClass}">
+                            <i class="fas ${statusIcon}"></i>
+                        </div>
+                        <div class="status-details">
+                            <div class="status-title">${statusTitle}</div>
+                            <div class="status-description">${statusDesc}</div>
+                            <div class="status-time">
+                                <i class="far fa-clock"></i>
+                                آخر تحديث: الآن
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="status-container">
+                    <div class="progress-wrapper">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: ${progressPercent}%;"></div>
+                            ${stepsHTML}
+                        </div>
+                    </div>
+                    ${statusCardHTML}
+                </div>
+            `;
+        }
+
+        // معلومات الشحن
+        window.showShipping = function() {
+            showPanel(`
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <span class="indicator teal"></span>
+                        <h3>معلومات الشحن</h3>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">🇰🇼 الدولة</span>
+                        <span class="info-value">الكويت</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">💵 العملة</span>
+                        <span class="info-value gold">الدولار</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">💱 سعر الصرف</span>
+                        <span class="info-value">1,320 دينار</span>
+                    </div>
+                    
+                    <hr class="separator">
+                    
+                    <div class="info-row">
+                        <span class="info-label">✈️ الشحن</span>
+                        <span class="info-value">جوي من 12-15 يوم</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">🚚 التوصيل</span>
+                        <span class="info-value">3,000 دينار</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">🎁 توصيل مجاني</span>
+                        <span class="info-value highlight">للطلبات فوق 150,000</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📦 الشحن</span>
+                        <span class="info-value highlight">مجاني بدون تحميل</span>
+                    </div>
+                    
+                    <button class="btn btn-outline mt-15" onclick="goBack()">
+                        <i class="fas fa-arrow-right"></i> العودة للقائمة
+                    </button>
+                </div>
+            `);
+        };
+
+        // حاسبة السعر
+        window.showCalculator = function() {
+            showPanel(`
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <span class="indicator blue"></span>
+                        <h3>حساب السعر بالدينار العراقي</h3>
+                    </div>
+                    
+                    <label class="form-label">💲 أدخل السعر بالدولار</label>
+                    <input 
+                        type="number" 
+                        class="form-input" 
+                        id="dollarInput" 
+                        placeholder="مثال: 50" 
+                        step="any"
+                        oninput="calculatePrice()"
+                        autofocus
+                    >
+                    
+                    <div class="result-box">
+                        <span class="number" id="resultAmount">0</span>
+                        <span class="currency">دينار عراقي</span>
+                    </div>
+                    
+                    <button class="btn btn-outline" onclick="goBack()">
+                        <i class="fas fa-arrow-right"></i> العودة للقائمة
+                    </button>
+                </div>
+            `);
+        };
+
+        window.calculatePrice = function() {
+            const input = document.getElementById('dollarInput');
+            const result = document.getElementById('resultAmount');
+            if (input && result) {
+                const dollars = parseFloat(input.value) || 0;
+                result.textContent = (dollars * 1320).toLocaleString('en');
+            }
+        };
+
+        // تتبع الطلب
+        window.showTracking = function() {
+            showPanel(`
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <span class="indicator purple"></span>
+                        <h3>تتبع طلبك</h3>
+                    </div>
+                    
+                    <label class="form-label">🔍 أدخل رقم الطلب</label>
+                    <input 
+                        type="text" 
+                        class="form-input" 
+                        id="trackInput" 
+                        placeholder="أدخل رقم الطلب"
+                    >
+                    
+                    <button class="btn btn-primary" onclick="trackOrder()">
+                        <i class="fas fa-search"></i> استعلام عن الطلب
+                    </button>
+                    
+                    <div id="trackResult"></div>
+                    
+                    <button class="btn btn-outline mt-10" onclick="goBack()">
+                        <i class="fas fa-arrow-right"></i> العودة للقائمة
+                    </button>
+                </div>
+            `);
+        };
+
+        window.trackOrder = function() {
+            const orderId = document.getElementById('trackInput')?.value.trim();
+            const resultDiv = document.getElementById('trackResult');
+            
+            if (!orderId) {
+                resultDiv.innerHTML = '<p style="color: #d2991d; text-align: center; margin-top: 10px;">⚠️ الرجاء إدخال رقم الطلب</p>';
+                return;
+            }
+
+            resultDiv.innerHTML = '<p style="color: #6e7681; text-align: center; margin-top: 10px;">جاري البحث...</p>';
+
+            const ordersRef = ref(database, 'orders');
+            
+            onValue(ordersRef, (snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    const entry = Object.entries(data).find(([k, v]) => v.orderId === orderId);
+                    if (entry) {
+                        const status = entry[1].status || 'قيد التجهيز';
+                        document.getElementById('trackResult').innerHTML = createStatusDisplay(status);
+                    } else {
+                        document.getElementById('trackResult').innerHTML = '<p style="color: #f778ba; text-align: center; margin-top: 10px;">❌ الطلب غير موجود</p>';
+                    }
+                } else {
+                    document.getElementById('trackResult').innerHTML = '<p style="color: #6e7681; text-align: center; margin-top: 10px;">لا توجد طلبات</p>';
+                }
+            });
+        };
+
+        // مركز المساعدة
+        window.showHelp = function() {
+            showPanel(`
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <span class="indicator pink"></span>
+                        <h3>مركز المساعدة</h3>
+                    </div>
+                    
+                    <p style="color: #8b949e; text-align: center; margin-bottom: 15px;">
+                        اختر وسيلة التواصل المفضلة
+                    </p>
+                    
+                    <div class="contact-row">
+                        <a href="https://instagram.com/" target="_blank" class="contact-link instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>انستغرام</span>
+                        </a>
+                        <a href="https://wa.me/" target="_blank" class="contact-link whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>واتساب</span>
+                        </a>
+                    </div>
+                    
+                    <button class="btn btn-outline" onclick="goBack()">
+                        <i class="fas fa-arrow-right"></i> العودة للقائمة
+                    </button>
+                </div>
+            `);
+        };
+
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const trackInput = document.getElementById('trackInput');
+                if (trackInput && document.activeElement === trackInput) {
+                    window.trackOrder();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
